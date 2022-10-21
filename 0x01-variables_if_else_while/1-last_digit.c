@@ -23,11 +23,11 @@ int main(void)
 	}
 	else if (x == 0)
 	{
-		printf(" and is 0/n");
+		printf(" and is 0\n");
 	}
 	else if (x < 6 && x != 0)
 	{
-		printf(" and is less than 6 and not 0");
+		printf(" and is less than 6 and not 0\n");
 	}
 
 	return (0);
