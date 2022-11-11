@@ -5,7 +5,7 @@
  * main - a program that adds positive numbers
  * @argc: the number of args
  * @argv: the contents of args
- * Return: Always 0
+ * Return: 0 or 1
  */
 
 int main(int argc, char **argv)
@@ -22,7 +22,7 @@ int main(int argc, char **argv)
 	}
 	for (; i < argc; i++)
 	{
-		additive = strtoi(argv[i], &nope, 10);
+		additive = strtol(argv[i], &nope, 10);
 		if (*nope == '\0')
 		{
 			sum += additive;
