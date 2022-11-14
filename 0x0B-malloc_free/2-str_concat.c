@@ -1,56 +1,43 @@
-#include <stdio.h>
+#include "main.h"
 #include <stdlib.h>
-
 /**
- * _strlen - counts and returns string length
- * @s: that's the string
- *
- * Return: the length
- */
-int _strlen(char *s)
-{
-	int counter = 0;
-
-	if (!*s)
-		return (0);
-	while (*s)
-	{
-		counter++;
-		s++;
-	}
-	return (counter);
-}
-/**
- * str_concat - concatentates two strings
- * @s1:string one
- * @s2: string two
- * Return: pointer to cat string
+ * str_concat - get ends of input and add together for size
+ * @s1: input one to concat
+ * @s2: input two to concat
+ * Return: concat of s1 and s2
  */
 char *str_concat(char *s1, char *s2)
 {
-	char *new;
-	unsigned int i;
-	unsigned int j;
-	int total = 0;
+	char *conct;
+	int i, ci;
 
-	if (!s1)
+	if (s1 == NULL)
 		s1 = "";
-	if (!s2)
+	if (s2 == NULL)
 		s2 = "";
-	total += _strlen(s1) + _strlen(s2);
-	new = malloc((total * sizeof(char)) + 1);
-	if (new == NULL)
-	{
+
+	i = ci = 0;
+	while (s1[i] != '\0')
+		i++;
+	while (s2[ci] != '\0')
+		ci++;
+	conct = malloc(sizeof(char) * (i + ci + 1));
+
+	if (conct == NULL)
 		return (NULL);
-	}
-	for (i = 0; s1[i]; i++)
+	i = ci = 0;
+	while (s1[i] != '\0')
 	{
-		new[i] = s1[i];
+		conct[i] = s1[i];
+		i++;
 	}
-	for (j = 0; s2[j]; j++; i++)
+
+	while (s2[ci] != '\0')
 	{
-		new[i] = s2[j];
+		conct[i] = s2[ci];
+		i++, ci++;
 	}
-	new[i] = '\0';
-	return (new);
+	conct[i] = '\0';
+	return (conct);
 }
+
