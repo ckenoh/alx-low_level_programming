@@ -1,17 +1,31 @@
 #include "main.h"
-#include <string.h>
-
 /**
- * _strspn - calculate the initial lenght of a from another string
- *
- * @s: string to calculate from other
- * @accept: string to index
- *
- * Return: integer
- */
+*_strspn - search the number of bytes in the initial
+* segment of s which consist only of bytes from accept
+*@s:segment targeted
+*@accept:reference bytes container
+*
+*Return:returns the number of bytes in the initial
+* segment of s which consist only of bytes from accept
+*/
 unsigned int _strspn(char *s, char *accept)
 {
-	int len = strspn(s, accept);
+	unsigned int bytes = 0;
+	int i;
 
-	return (len);
+	while (*s)
+	{
+		for (i = 0; accept[i]; i++)
+		{
+			if (accept[i] == *s)
+			{
+				bytes++;
+				break;
+			}
+			else if ((accept[i + 1]) == '\0')
+				return (bytes);
+		}
+		s++;
+	}
+	return (bytes);
 }

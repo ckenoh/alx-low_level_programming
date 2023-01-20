@@ -1,16 +1,20 @@
 #include "main.h"
-#include <string.h>
 /**
- * *_memset - filling n byte to the pointer
- *
- * @s: destination
- * @b: source
- * @n: the number of bytes copy from c to s
- *
- * Return: characters
- */
+*_memset - The _memset() function fills
+* the first n bytes of the memory area
+* pointed to by s with the constant byte b
+*@s:target
+*@b: constant byte
+*@n:number of byte
+*Return: returns new value of target
+*/
+
 char *_memset(char *s, char b, unsigned int n)
 {
-	memset(s, b, n);
+	while (n)
+	{
+		s[n - 1] = b;
+		n--;
+	}
 	return (s);
 }

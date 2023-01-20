@@ -1,18 +1,18 @@
 #include "main.h"
-
 /**
- * _strcpy - update value;
- * @dest: value of first interger
- * @src: value of second ineeger
- * Return: alwaus 0
- */
+* _strcpy - Copy paste string
+*@dest: destination
+*@src: source
+*Return: dest
+*/
 char *_strcpy(char *dest, char *src)
 {
-	int i;
-
-	for (i = 0; i <= _strlen(src); i++)
-	{
-		dest[i] = src[i];
-	}
-	return (dest);
+int inc = 0;
+while (*(src + inc) != '\0')
+{
+*(dest + inc) = *(src + inc);
+inc++;
+}
+*(dest + inc) = '\0';
+return (dest);
 }
